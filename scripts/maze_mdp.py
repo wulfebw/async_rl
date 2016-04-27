@@ -1,5 +1,5 @@
 """
-This file defines a simple MDP on which to test the a3c implementation.
+This file defines a simple MDP on which to test the actor critic implementation.
 """
 
 import numpy as np
