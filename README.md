@@ -1,4 +1,4 @@
-## Description
+## Summary
 This repo contains a process-based implementation of tabular, 1-step,
 asynchronous actor critic. It's pretty different from the A3C 
 algorithm from the Asynchronous Methods for Deep 
@@ -25,3 +25,11 @@ seems to depend upon the specific maze MDP you use.
 - 2x10 maze: 22.1 seconds
 - 1x30 maze: 79.2
 - 5x3 maze: 18.5
+
+## File Descriptions
+- run_experiment.py: Script for running an experiment.
+- async_actor_critic.py: Contains the implementation of asynchronous actor critic.
+- experiment.py: Contains implementations for the Experiment and MultiProcessExperiment
+classes.
+- maze_mdp.py: Defines a simple MDP on which to test the actor critic implementation.
+- utils.py: Utilities used by the algorithm and for plotting.

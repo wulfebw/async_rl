@@ -12,7 +12,7 @@ import utils
 
 # number of agents to simulate
 # should equal number of cores
-NUM_PROCESSES = 2
+NUM_PROCESSES = 1
 
 def run():
     # build the mdp
