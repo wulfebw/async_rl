@@ -15,16 +15,16 @@ seems to depend upon the specific maze MDP you use.
 
 ## Results
 ### single process:
-- 2x5 maze: 5.4
-- 2x10 maze: 21.9
-- 1x30 maze: 49.2
-- 5x3 maze: 11.9
+- 2x5 maze: 5.4 seconds
+- 2x10 maze: 21.9 seconds
+- 1x30 maze: 49.2 seconds
+- 5x3 maze: 11.9 seconds
 
 ### two processes:
 - 2x5 maze: 3.5 seconds
 - 2x10 maze: 22.1 seconds
-- 1x30 maze: 79.2
-- 5x3 maze: 18.5
+- 1x30 maze: 79.2 seconds
+- 5x3 maze: 18.5 seconds
 
 ## File Descriptions
 - run_experiment.py: Script for running an experiment.
