@@ -1,5 +1,4 @@
 """
-filename: async_rl.py
 author: blake wulfe
 date: 4/27/16
 
