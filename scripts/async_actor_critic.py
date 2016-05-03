@@ -54,19 +54,25 @@ class AsyncActorCritic(object):
         """
         Update both actor and critic weights.
         """
+        # prediction = V(s)
         prediction = self.getV(state)
         target = reward
         new_action = None
 
         if new_state != None:
             new_action = self.get_action(new_state)
+            # target = r + yV(s')
             target += self.discount * self.getV(new_state)
-
+        
+        # advantage actor critic because we use the td error
+        # as an unbiased sample of the advantage function
         update = self.learning_rate * (target - prediction)
         for f, v in self.feature_extractor(state):
+            # update critic weights
             self.value_weights[f] = self.value_weights[f] + 2 * update
 
         for f, v in self.feature_extractor(state, action):
+            # update actor weights
             self.weights[f] = self.weights[f] + update * 1
 
         return new_action
