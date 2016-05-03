@@ -43,6 +43,9 @@ class AsyncActorCritic(object):
         q_values = np.array([self.getQ(state, action) for action in self.actions])
         q_values = q_values - max(q_values)
         exp_q_values = np.exp(q_values / (self.tau + 1e-2))
+        # should really be returning probs[action_idx]
+        # sum_exp_q_values = np.sum(exp_q_values)
+        # probs = exp_q_values / sum_exp_q_values
         weights = dict()
         for idx, val in enumerate(exp_q_values):
             weights[idx] = val
@@ -73,6 +76,14 @@ class AsyncActorCritic(object):
 
         for f, v in self.feature_extractor(state, action):
             # update actor weights
-            self.weights[f] = self.weights[f] + update * 1
+            # this update should actually be:
+            # self.weights[f] += update * (v - prob(v))
+            # since (v - prob(v)) is, in this case, equal to
+            # the gradient of the log of the policy
+            # however, that seems to work way worse than simply
+            # multiplying by v (i.e., 1) instead, though it's likely
+            # this version loses convergence gaurantees
+            # and / or would work poorly with a neural net
+            self.weights[f] = self.weights[f] + update * v
 
         return new_action

@@ -12,13 +12,13 @@ import utils
 
 # number of agents to simulate
 # should equal number of cores
-NUM_PROCESSES = 1
+NUM_PROCESSES = 2
 
 def run():
     # build the mdp
     start = time.time()
-    room_size = 5
-    num_rooms = 2
+    room_size = 3
+    num_rooms = 5
     mdp = maze_mdp.MazeMDP(room_size=room_size, num_rooms=num_rooms)
 
     # build the agent
